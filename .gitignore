@@ -1,0 +1,7 @@
+node_modules
+coverage
+.env
+authapi-application-server.pem
+authapi.pem
+package-lock.json
+config/database/test.json
