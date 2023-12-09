@@ -499,6 +499,24 @@ describe('HTTP server', () => {
     });
   });
 
+  describe('when GET /', () => {
+    it('should return 200 and hello world', async () => {
+      // arr
+      const server = await createServer({});
+
+      // act
+      const response = await server.inject({
+        method: 'GET',
+        url: '/',
+      });
+
+      // assert
+      const responseJson = JSON.parse(response.payload);
+      expect(response.statusCode).toEqual(200);
+      expect(responseJson.value).toEqual('Hello World');
+    })
+  })
+
   it('should handle server error correctly', async () => {
     // Arrange
     const requestPayload = {
